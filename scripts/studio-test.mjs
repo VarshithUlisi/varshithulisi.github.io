@@ -15,3 +15,6 @@ assert(!article.includes('eventDate:'));
 assert(!article.includes('image:'));
 assert(article.includes('Original writing by Varshith Sai Ulisi.'));
 console.log('Studio serialization, safe frontmatter, slug generation, optional event/photo fields, and draft status passed.');
+
+assert(markdownFor({...draft,venue:'Town Hall, Main Room'}).includes('venue: "Town Hall, Main Room"'));
+assert(!markdownFor({...draft,venue:'  '}).includes('venue:'));

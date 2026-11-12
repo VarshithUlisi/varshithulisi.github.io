@@ -23,3 +23,7 @@ The browser editor supports multiple saved drafts, basic reading preview, option
 ## November 12 content strategy update
 
 Astro check: zero errors or warnings. Production build: 25 pages. Internal checks: 808 links, structured data, privacy exclusions and five RSS entries passed. Studio serialization tests passed. Browser checks confirmed prompt loading, unfinished-prompt publication guard, article preview, clipboard/GitHub handoff and deletion of the temporary browser test draft. Resources page visually reviewed. No test article was published.
+
+## Portfolio and brand refresh
+
+Broadened portfolio copy using the existing résumé source. Added Blog and Events navigation, dated event archive, optional venue, and photo cards. Supplied logo used unchanged as header image and favicon. Desktop and mobile homepage visually inspected; no horizontal overflow at the tested mobile width. Event editor exposes separate date and venue fields.

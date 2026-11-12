@@ -3,6 +3,7 @@ export function makeSlug(title: string) { return title.normalize('NFKD').replace
 export function markdownFor(d: Draft, draft = false) {
  const fields: Record<string, string | boolean> = {title:d.title,description:d.description,published:d.published,category:d.category,eventLabel:d.eventDate || '',related:d.related || '',sourceNote:d.sourceNote.trim() || 'Original writing by Varshith Sai Ulisi.',draft,featured:d.featured==='true'};
  if(d.eventDate) fields.eventDate=d.eventDate;
+ if(d.venue?.trim()) fields.venue=d.venue.trim();
  if(d.image){fields.image=d.image;fields.imageAlt=d.imageAlt;}
  return `---\n${Object.entries(fields).map(([key,value])=>`${key}: ${JSON.stringify(value)}`).join('\n')}\n---\n\n${d.body.trim()}\n`;
 }
@@ -24,6 +25,7 @@ export function initStudio() {
  function load(d?:Draft){clearTimeout(timer);form.reset();currentId=d?.id||crypto.randomUUID();manualSlug=Boolean(d?.slug);field('published').value=d?.published||today();if(d)for(const [key,value] of Object.entries(d)){if(form.elements.namedItem(key)){if(key==='featured')(field(key) as HTMLInputElement).checked=value==='true';else field(key).value=value;}}panel.hidden=true;error.hidden=true;document.querySelector<HTMLElement>('#delete-confirm')!.hidden=true;options();render();}
  try{const stored=JSON.parse(localStorage.getItem(storageKey)||'[]');if(Array.isArray(stored))drafts=stored.filter(d=>d && typeof d.id==='string' && typeof d.body==='string' && typeof d.title==='string');}catch{status.textContent='Saved drafts could not be loaded. You can still write and download a post.';}
  load(drafts[0]);
+ if(new URLSearchParams(location.search).get('type')==='event'){load();field('category').value='Events';render();}
  const ideas: {title:string;category:string;related:string;prompt:string}[]=JSON.parse(document.querySelector('#editorial-ideas')!.textContent||'[]');
  document.querySelectorAll<HTMLButtonElement>('[data-idea]').forEach(button=>button.addEventListener('click',()=>{save();load();const idea=ideas[Number(button.dataset.idea)];field('title').value=idea.title;field('slug').value=makeSlug(idea.title);field('category').value=idea.category;field('related').value=idea.related;field('body').value=`[WRITING PROMPT — replace before publishing]\n\n${idea.prompt}\n\n## What happened\n\n## Why it mattered\n\n## What I learned\n\n## Evidence and context`;render();save();field('body').focus();status.textContent='Story prompt loaded. Replace the prompt with your own verified account.';}));
  form.addEventListener('input',e=>{if(e.target===field('slug'))manualSlug=true;if(e.target===field('title')&&!manualSlug)field('slug').value=makeSlug(field('title').value);panel.hidden=true;error.hidden=true;render();clearTimeout(timer);timer=setTimeout(save,600);});

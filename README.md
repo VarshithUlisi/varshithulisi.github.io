@@ -99,3 +99,7 @@ The supplied portrait appears on Home, About, and Contact. Original abstract SVG
 ## Editorial strategy update
 
 The studio includes 12 article prompts from the supplied strategy. They are not published posts; replace prompts with authentic writing and confirmed event details. `/resources/` contains biographies, the supplied portrait, project summaries and a printable public profile. `/resources/profile/` supports Print / Save as PDF. The profile is a concise public summary, not an independently verified résumé.
+
+## Blog and events
+
+Blog lives at `/journal/` to preserve existing article addresses. `/events/` automatically includes published posts with an event date or an Events, Speaking, or Presentations category. Use `/studio/?type=event` to start an event entry. Event date, venue, and publication date are separate fields. Upload real photos through the studio’s GitHub images-folder link, then use a cover path or Markdown image in the article. Featured cover photos also appear on the homepage. The supplied logo is preserved unchanged in the header and PNG favicon.
