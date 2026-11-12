@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import { posts } from '../lib/posts';
+import projects from '../data/projects.json';
+import { path } from '../lib/site';
+const existing = await posts();
+const categories = ['Events','Speaking','Presentations','Community Service','Leadership','Ventures','Research','Personal Reflections'];
+---
+<Base title="Writing studio" description="Draft and publish new journal entries." noindex>
+ <header class="page-head"><p class="eyebrow">Your personal publication</p><h1>The writing studio.</h1><p class="intro">Capture an experience. Share an idea. Add the next chapter.</p></header>
+ <noscript><p class="note">Enable JavaScript to use the editor, or <a href="https://github.com/VarshithUlisi/varshithulisi.github.io/tree/main/src/content/journal">write directly on GitHub</a>.</p></noscript>
+ <div class="studio-info"><p>Write here, then confirm publication in GitHub. Only someone with access to your repository can publish.</p><p class="caption">Drafts stay in this browser until you publish or download them. They do not sync across devices.</p></div>
+ <div class="studio-toolbar"><label>Saved drafts<select id="draft-list"><option value="">Choose a draft</option></select></label><button type="button" id="new-draft">New post</button><button type="button" id="save-draft">Save draft</button><button type="button" id="discard-draft">Delete draft</button><span id="delete-confirm" hidden>Delete this browser draft? <button type="button" id="confirm-delete">Delete permanently</button><button type="button" id="cancel-delete">Keep draft</button></span><p id="save-status" role="status" aria-live="polite">Ready to write.</p></div>
+ <div class="studio-columns">
+  <form id="post-editor" class="post-editor">
+   <div class="editor-heading"><h2>Your story</h2><span class="meta" id="word-count">0 words</span></div>
+   <label>Title<input name="title" id="post-title" required maxlength="180" placeholder="What do you want to share?"/></label>
+   <label>Short introduction<textarea name="description" rows="2" required maxlength="400" placeholder="A sentence or two for the journal and homepage."/></label>
+   <div class="field-pair"><label>Category<select name="category">{categories.map(c=><option>{c}</option>)}</select></label><label>Publication date<input type="date" name="published" required/></label></div>
+   <div class="field-pair"><label>Event date <span class="optional">optional</span><input type="date" name="eventDate"/></label><label>Related initiative<select name="related"><option value="">None</option>{projects.map(p=><option value={p.slug}>{p.title}</option>)}</select></label></div>
+   <label>Your article<textarea id="post-body" name="body" rows="16" required placeholder="What happened? Why did it matter? What did you learn?&#10;&#10;Use ## for a section heading and - for a list item."/></label>
+   <p class="field-help">Use <code>## Heading</code> for sections and <code>- item</code> for lists. Markdown links and images are supported on the published page. The preview shows basic text structure.</p>
+   <details><summary>Photo, source notes & settings</summary><div class="advanced-fields">
+    <label>Cover photo path <span class="optional">optional</span><input name="image" placeholder="images/my-event.jpg"/><span class="field-help">Upload a permission-cleared photo to <a href="https://github.com/VarshithUlisi/varshithulisi.github.io/upload/main/public/images" target="_blank" rel="noopener noreferrer">your images folder ↗</a>, then enter its path here.</span></label>
+    <label>Describe the photo<input name="imageAlt" maxlength="300" placeholder="Who or what is shown?"/></label>
+    <label>Source or context note <span class="optional">optional</span><textarea name="sourceNote" rows="3" placeholder="For example: Based on my participation and the event program linked in the article."/></label>
+    <label>Post address<input name="slug" id="post-slug" required pattern="[a-z0-9]+(-[a-z0-9]+)*" maxlength="100" placeholder="my-new-story"/><span class="field-help">Use lowercase letters, numbers, and hyphens. Each post needs a unique address.</span></label>
+    <label class="check-field"><input name="featured" type="checkbox"/> Feature this story on the homepage</label>
+   </div></details>
+   <p id="editor-error" class="editor-error" role="alert" hidden></p>
+   <div class="editor-actions"><button class="button" type="submit">Prepare to publish →</button><button type="button" id="download-post">Download draft</button></div>
+  </form>
+  <aside class="preview-panel" aria-label="Article preview"><p class="eyebrow">Reading preview</p><span class="meta" id="preview-category">Events</span><h2 id="preview-title">Your next chapter.</h2><p id="preview-description">Your introduction will appear here.</p><div class="prose" id="preview-body"><p>Start writing to see your story take shape.</p></div></aside>
+ </div>
+ <section id="publish-panel" class="publish-panel" hidden aria-labelledby="publish-title" tabindex="-1"><p class="eyebrow">One final step</p><h2 id="publish-title">Ready for your journal.</h2><p id="publish-instructions"></p><p id="date-notice"></p><ol><li>Open GitHub below and sign in as VarshithUlisi.</li><li id="paste-instruction">Paste the copied post into the file editor.</li><li>Choose <strong>Commit changes</strong> and commit to <strong>main</strong>. GitHub builds and publishes the website automatically.</li></ol><div class="links"><a class="button" id="publish-link" target="_blank" rel="noopener noreferrer">Open GitHub to publish ↗</a><button type="button" id="copy-again">Copy post again</button><a href="https://github.com/VarshithUlisi/varshithulisi.github.io/actions" target="_blank" rel="noopener noreferrer">Check publishing status ↗</a></div><details><summary>View or manually copy the prepared post</summary><textarea id="prepared-markdown" rows="14" readonly aria-label="Prepared Markdown post"></textarea></details><p class="caption">This step prepares a post; it does not publish until you commit it on GitHub. Your browser draft stays saved so you can return to it.</p></section>
+ <section class="section"><div class="section-head"><h2>Published stories</h2><a class="small-link" href={path('journal/')}>View the journal →</a></div>{existing.map(p=><article class="studio-post"><div><span class="meta">{p.data.category}</span><h3><a href={path(`journal/${p.id}/`)}>{p.data.title}</a></h3></div><a class="small-link" href={`https://github.com/VarshithUlisi/varshithulisi.github.io/edit/main/src/content/journal/${p.id}.md`} target="_blank" rel="noopener noreferrer">Edit on GitHub ↗</a></article>)}</section>
+ <script is:inline type="application/json" id="existing-posts" set:html={JSON.stringify(existing.map(p=>p.id)).replace(/</g,'\u003c')}/>
+</Base>
+<script>
+import { initStudio } from '../lib/studio';
+initStudio();
+</script>

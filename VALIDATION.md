@@ -15,3 +15,7 @@
 Builds were checked with Node 22.14 and Node 24.22.1; use Node 22.19+ to satisfy all installed dependency engine requirements. The GitHub workflow uses the current Node 22 release.
 
 Deployment target: `VarshithUlisi/varshithulisi.github.io`, configured for GitHub Actions. Live deployment is verified separately after the workflow completes. Browser checks are representative, not a formal WCAG certification or full screen-reader audit. External project links and self-reported achievements have not been independently verified. See CONTENT-REVIEW.md for content questions.
+
+## Writing studio update — November 12, 2026
+
+The browser editor supports multiple saved drafts, basic reading preview, optional event dates, related initiatives, cover-photo metadata, download, and GitHub publication preparation. Browser checks verified draft restoration after reload and generation of the correct GitHub new-file URL. No test post was committed. Serializer tests cover quoted/multiline frontmatter, safe slugs, draft exports, and optional fields. The dashboard is excluded from the sitemap and marked noindex. Final publication is through GitHub, not directly from the public page.

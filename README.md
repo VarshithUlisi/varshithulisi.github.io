@@ -32,7 +32,15 @@ For a custom domain, configure it in GitHub Pages, set `SITE_URL` to the HTTPS d
 
 Deployment reference: [Astro’s GitHub Pages guide](https://docs.astro.build/en/guides/deploy/github/).
 
-## Publish a journal entry
+## Publish from the writing studio
+
+Open [the writing studio](https://varshithulisi.github.io/studio/), also linked as **Write a post** in the footer. Write a title, introduction, and article. Choose a category, publication date, and optional event date or related project. The editor saves drafts in this browser and shows a basic reading preview.
+
+Select **Prepare to publish** to copy the complete post. Select **Open GitHub to publish**, paste into the file editor, then choose **Commit changes** to `main`. GitHub sign-in and repository access are required for that final step. The public dashboard itself does not grant publishing access or hold credentials. Existing posts have **Edit on GitHub** links.
+
+Photo uploads use the linked GitHub images folder; enter `images/filename.jpg` and meaningful alt text after uploading. **Download draft** exports Markdown with `draft: true` to avoid accidental publication. Browser drafts do not sync between devices; download important drafts as a backup. Preparing a post does not publish it. Future-dated posts require a build on or after the publication date; no scheduling service is implied.
+
+## Publish a journal entry manually
 
 Create `src/content/journal/my-new-story.md` in GitHub’s editor or locally:
 

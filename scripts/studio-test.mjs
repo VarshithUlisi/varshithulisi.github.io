@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import { makeSlug, markdownFor } from '../src/lib/studio.ts';
+assert.equal(makeSlug('An Idea: Café & Community!'),'an-idea-cafe-community');
+assert(makeSlug('word '.repeat(80)).length<=100);
+const draft={id:'test',updated:'2026-11-12',title:'A title with "quotes"\nand a newline',description:'A short introduction',published:'2026-11-12',category:'Events',eventDate:'2026-11-10',related:'uplift-academy-ohio',sourceNote:'Event program',featured:'true',image:'images/test.jpg',imageAlt:'Students sharing projects',body:'## My story\n\nA paragraph.',slug:'my-story'};
+const markdown=markdownFor(draft);
+assert.equal(markdown.split('\n').filter(l=>l==='---').length,2);
+assert(markdown.includes('title: "A title with \\"quotes\\"\\nand a newline"'));
+assert(markdown.includes('eventDate: "2026-11-10"'));
+assert(markdown.includes('imageAlt: "Students sharing projects"'));
+assert(markdown.includes('draft: false'));
+assert(markdownFor(draft,true).includes('draft: true'));
+const article=markdownFor({...draft,eventDate:'',image:'',sourceNote:'',featured:'false'});
+assert(!article.includes('eventDate:'));
+assert(!article.includes('image:'));
+assert(article.includes('Original writing by Varshith Sai Ulisi.'));
+console.log('Studio serialization, safe frontmatter, slug generation, optional event/photo fields, and draft status passed.');

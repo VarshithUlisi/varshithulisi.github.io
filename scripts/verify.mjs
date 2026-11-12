@@ -6,7 +6,7 @@ const base=(process.env.BASE_PATH||'/').replace(/\/$/,'');
 const origin=process.env.SITE_URL||'https://varshithulisi.github.io';
 const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);
 const files=walk(root), html=files.filter(f=>f.endsWith('.html'));let links=0;
-const required=['index.html','about/index.html','about/timeline/index.html','impact/index.html','leadership/index.html','projects/index.html','journal/index.html','recognition/index.html','contact/index.html','evidence/index.html','404.html','rss.xml','sitemap-index.xml','robots.txt','llms.txt','biography.txt'];
+const required=['index.html','studio/index.html','about/index.html','about/timeline/index.html','impact/index.html','leadership/index.html','projects/index.html','journal/index.html','recognition/index.html','contact/index.html','evidence/index.html','404.html','rss.xml','sitemap-index.xml','robots.txt','llms.txt','biography.txt'];
 for(const f of required)assert(fs.existsSync(path.join(root,f)),`Missing ${f}`);
 for(const file of html){const text=fs.readFileSync(file,'utf8');assert.equal((text.match(/<h1(?:\s|>)/g)||[]).length,1,`${file}: exactly one h1`);assert(text.includes('lang="en"'),`${file}: language`);assert(text.includes('name="description"'),`${file}: description`);assert(text.includes('rel="canonical"'),`${file}: canonical`);assert(text.includes('Skip to content'),`${file}: skip link`);
 for(const m of text.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)){const schema=JSON.parse(m[1]);assert(schema['@graph'].some(n=>n['@type']==='Person'));}
