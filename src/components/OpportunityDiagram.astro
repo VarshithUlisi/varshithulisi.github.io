@@ -1,0 +1,8 @@
+---
+const steps=[['01','Notice','Listen to the people closest to a problem.'],['02','Bring together','Connect ideas with people, skills, and resources.'],['03','Build','Turn the possibility into something people can use.'],['04','Keep learning','Listen to feedback. Improve what comes next.']];
+---
+<section class="opportunity-process" aria-labelledby="process-title" data-reveal>
+ <div class="section-head"><div><p class="eyebrow">The thread through my work</p><h2 id="process-title">An idea is only the beginning.</h2></div><p class="process-intro">How I try to turn curiosity into contribution.</p></div>
+ <ol class="process-steps">{steps.map(([number,title,body])=><li><span class="process-node" aria-hidden="true">{number}</span><h3>{title}</h3><p>{body}</p></li>)}</ol>
+ <p class="caption">A way of working, not a measurement of outcomes.</p>
+</section>

@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import Metrics from '../components/Metrics.astro';
+import Stories from '../components/Stories.astro';
+import OpportunityDiagram from '../components/OpportunityDiagram.astro';
+import InitiativeArt from '../components/InitiativeArt.astro';
+import {path,linkedin} from '../lib/site';
+---
+<Base>
+ <section class="personal-hero">
+  <div class="hero-copy" data-reveal>
+   <p class="eyebrow"><span class="tiny-mark" aria-hidden="true"></span> A builder. A learner. A work in progress.</p>
+   <h1>Opportunity<br/>starts with<br/><em>someone.</em></h1>
+   <p class="personal-intro">I’m Varshith. I build things that help<br class="desktop-break"/> other people take their next step.</p>
+   <p class="hero-detail">From teaching English in Guadalajara to creating free STEM opportunities in Ohio, I’m learning to turn the things I care about into something useful for others.</p>
+   <div class="links"><a class="button" href={path('impact/')}>Explore my impact <span aria-hidden="true">↗</span></a><a class="small-link" href={path('about/')}>Get to know me →</a></div>
+  </div>
+  <figure class="portrait-story" data-reveal>
+   <div class="portrait-frame"><img src={path('images/varshith-ulisi.png')} alt="Varshith Sai Ulisi wearing a navy sweater" width="800" height="800" fetchpriority="high"/><span class="portrait-label">Curiosity into contribution.</span></div>
+   <figcaption><span>Varshith Sai Ulisi<br/><small>Education · Entrepreneurship · Community</small></span><a href={linkedin} aria-label="Connect with Varshith on LinkedIn">LinkedIn ↗</a></figcaption>
+  </figure>
+ </section>
+ <section class="personal-statement" data-reveal><p class="eyebrow">The reason behind the work</p><blockquote>“I'd like the opportunities I receive to lead to opportunities for other people, too.”</blockquote><p class="statement-credit">— From my personal reflections</p></section>
+ <section class="section" data-reveal><p class="eyebrow">Small beginnings. Shared possibilities.</p><Metrics/></section>
+ <section class="section"><div class="section-head" data-reveal><div><p class="eyebrow">Selected impact</p><h2>Build something.<br/><em>Make room for someone.</em></h2></div><a class="small-link" href={path('impact/')}>All impact stories →</a></div>
+  <div class="two-col">
+   <article class="feature visual-feature" data-reveal><a class="art-link" href={path('projects/uplift-academy-ohio/')} aria-label="Explore Uplift Academy Ohio"><InitiativeArt kind="learning"/></a><span class="number">01 / Educational access</span><h3><a href={path('projects/uplift-academy-ohio/')}>A little curiosity.<br/>A world of possibility.</a></h3><p>Free STEM learning, volunteer mentorship, and a showcase where younger students could share what they built with their families.</p><a class="small-link" href={path('projects/uplift-academy-ohio/')}>Inside Uplift Academy Ohio ↗</a></article>
+   <article class="feature visual-feature" data-reveal><a class="art-link" href={path('projects/mason-venture-studio/')} aria-label="Explore Mason Venture Studio"><InitiativeArt kind="venture"/></a><span class="number">02 / Student entrepreneurship</span><h3><a href={path('projects/mason-venture-studio/')}>You have an idea.<br/>Now, a place to begin.</a></h3><p>Helping student founders turn an early idea into a venture through practical experience and connections with mentors.</p><a class="small-link" href={path('projects/mason-venture-studio/')}>Inside Mason Venture Studio ↗</a></article>
+  </div>
+ </section>
+ <OpportunityDiagram/>
+ <section class="section" data-reveal><div class="section-head"><div><p class="eyebrow">A living record</p><h2>Notes along the way.</h2></div><a class="small-link" href={path('journal/')}>Browse the journal →</a></div><Stories/></section>
+ <section class="section" data-reveal><div class="two-col"><div><p class="eyebrow">What leadership is teaching me</p><span class="editorial-number" aria-hidden="true">We.</span></div><div><h2>Help people find<br/>a place to contribute.</h2><p>Sometimes that means offering guidance. Sometimes it means finding the right mentor. And sometimes it means listening, then leaving room for someone to work through an idea.</p><a class="small-link" href={path('leadership/')}>How I approach leadership →</a></div></div></section>
+ <section class="journey-band" data-reveal><div><p class="eyebrow">An autobiography in progress</p><h2>Different places.<br/>A growing purpose.</h2><div class="place-connection" aria-label="From Guadalajara to Mason"><span>Guadalajara</span><span aria-hidden="true">········→</span><span>Mason</span></div></div><div><p>Starting again taught me to get involved before I felt fully ready. Each community gave me different ways to contribute—and a clearer idea of the person I want to become.</p><a class="small-link" href={path('about/')}>Read my story →</a></div></section>
+ <section class="closing-note" data-reveal><p class="eyebrow">The next chapter is a conversation</p><h2>What could we<br/><em>make possible?</em></h2><div class="links"><a class="button" href={path('contact/')}>Let’s connect ↗</a><a class="small-link" href={linkedin}>Find me on LinkedIn →</a></div></section>
+</Base>

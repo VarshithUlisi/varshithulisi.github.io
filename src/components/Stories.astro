@@ -1,0 +1,6 @@
+---
+import {posts} from '../lib/posts';
+import {path} from '../lib/site';
+const all=await posts(); const featured=all.find(p=>p.data.featured)||all[0]; const rest=all.filter(p=>p.id!==featured?.id).slice(0,3);
+---
+{featured&&<div class="journal-grid"><article class="featured-story"><p class="eyebrow">Featured story · {featured.data.category}</p><div><h3><a href={path(`journal/${featured.id}/`)}>{featured.data.title}</a></h3><p>{featured.data.description}</p><a class="small-link" href={path(`journal/${featured.id}/`)}>Read the story →</a></div></article><div>{rest.map(p=><article class="story-row"><p class="eyebrow">{p.data.category}</p><h3><a href={path(`journal/${p.id}/`)}>{p.data.title}</a></h3><p>{p.data.description}</p><span class="meta">{p.data.eventLabel}</span></article>)}</div></div>}

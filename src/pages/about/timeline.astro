@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import Heading from '../../components/Heading.astro';
+import {posts} from '../../lib/posts';
+import {path,dateLabel} from '../../lib/site';
+const all=await posts();
+const milestones=[
+ {date:'2023-09-01',label:'September 2023 – June 2024',title:'Teaching in Guadalajara',description:'English instruction for community workers through Aprendiendo Juntos.',href:'journal/teaching-in-guadalajara/'},
+ {date:'2024-01-01',label:'January 2024',title:'GUAMUN conference leadership',description:'Security Council cochair and support for conference operations in Guadalajara. Source: brag sheet p. 10.',href:'leadership/'},
+ {date:'2024-02-03',label:'February 3, 2024',title:'Supporting young robotics teams',description:'Volunteered as a FIRST LEGO League referee in Guadalajara. Source: brag sheet p. 11.',href:'impact/'},
+ {date:'2025-03-01',label:'March 2025',title:'Founding Uplift Academy Ohio',description:'Started the Ohio division, developing free STEM programs and community partnerships.',href:'projects/uplift-academy-ohio/'}
+];
+// Month-only dates use the first day solely for sorting, never as a displayed event date.
+const dated=[...milestones,...all.filter(p=>p.data.eventDate).map(p=>({date:p.data.eventDate!.toISOString(),label:dateLabel(p.data.eventDate!),title:p.data.title,description:p.data.description,href:`journal/${p.id}/`}))].sort((a,b)=>a.date.localeCompare(b.date));
+const undated=all.filter(p=>!p.data.eventDate);
+---
+<Base title="Timeline">
+ <Heading label="The journey" title="A life taking shape." description="A connected record of school communities, service, and initiatives. Dates appear only where the supplied material supports them."/>
+ <ol class="timeline">
+  {dated.map(item=><li><span class="period">{item.label}</span><div><h2>{item.title}</h2><p>{item.description}</p><a href={path(item.href)}>Read more →</a></div></li>)}
+ </ol>
+ <section class="section"><h2>A new community in Mason.</h2><p>After freshman year, I moved from Guadalajara to Mason and explored opportunities in entrepreneurship, technology, and finance. The exact move date is not supplied.</p><a href={path('about/#ohio')}>Read this chapter →</a></section>
+ <section class="section"><h2>More chapters from the journal.</h2><p>These entries have an event period or an unconfirmed date. They are kept outside the dated chronology.</p>{undated.map(p=><article class="story-row"><p class="meta">{p.data.eventLabel}</p><h3><a href={path(`journal/${p.id}/`)}>{p.data.title}</a></h3></article>)}</section>
+ <p class="note">Future education and ventures will enter this record as they happen. Journal entries with a confirmed event date appear in the dated timeline automatically.</p>
+</Base>

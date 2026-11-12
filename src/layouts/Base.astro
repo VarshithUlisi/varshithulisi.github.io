@@ -1,0 +1,26 @@
+---
+import '../styles/global.css';
+import {name,description as defaultDescription,path,absolute,linkedin} from '../lib/site';
+interface Props {title?:string;description?:string;type?:string;schema?:Record<string,unknown>;noindex?:boolean;}
+const {title,description=defaultDescription,type='website',schema,noindex=false}=Astro.props;
+const fullTitle=title?`${title} — ${name}`:name+' — Building opportunities for others';
+const canonical=new URL(Astro.url.pathname,Astro.site||'https://example.com').href;
+const preview=Astro.site?.hostname==='example.com';
+const person={'@type':'Person','@id':absolute('#person',Astro.site),name,url:absolute('',Astro.site),description:defaultDescription,image:absolute('images/varshith-ulisi.png',Astro.site),sameAs:[linkedin]};
+const graph=[person,{'@type':Astro.url.pathname.endsWith('/about/')?'ProfilePage':'WebPage','@id':canonical,url:canonical,name:fullTitle,description,mainEntity:{'@id':person['@id']}},...(schema?[schema]:[])];
+const nav=[['Home',''],['About','about/'],['Impact','impact/'],['Leadership','leadership/'],['Projects','projects/'],['Journal','journal/'],['Recognition','recognition/'],['Contact','contact/']];
+const active=(href:string)=>href?Astro.url.pathname.startsWith(path(href)):Astro.url.pathname===path('');
+---
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>{fullTitle}</title><meta name="description" content={description}/><link rel="canonical" href={canonical}/><meta name="robots" content={noindex||preview?'noindex, nofollow':'index, follow'}/><meta name="theme-color" content="#19384a"/><meta property="og:title" content={fullTitle}/><meta property="og:description" content={description}/><meta property="og:type" content={type}/><meta property="og:url" content={canonical}/><meta property="og:site_name" content={name}/><meta property="og:image" content={absolute('images/varshith-ulisi.png',Astro.site)}/><meta property="og:image:alt" content="Portrait of Varshith Sai Ulisi"/><meta name="twitter:card" content="summary"/><link rel="icon" type="image/svg+xml" href={path('favicon.svg')}/><link rel="alternate" type="application/rss+xml" title="Varshith Sai Ulisi — Journal" href={path('rss.xml')}/><script type="application/ld+json" set:html={JSON.stringify({'@context':'https://schema.org','@graph':graph}).replace(/</g,'\u003c')}/></head><body><div class="reading-progress" aria-hidden="true"></div><a class="skip" href="#main">Skip to content</a><header class="wrap"><div class="masthead"><a class="brand" href={path('')}>Varshith Sai Ulisi<span aria-hidden="true">.</span></a><span class="edition">A personal record · Ideas into action</span></div><nav class="nav desktop-nav" aria-label="Main navigation">{nav.map(([label,href])=><a href={path(href)} aria-current={active(href)?'page':undefined}>{label}</a>)}</nav><details class="mobile-nav"><summary>Explore the site</summary><nav class="nav" aria-label="Mobile navigation">{nav.map(([label,href])=><a href={path(href)} aria-current={active(href)?'page':undefined}>{label}</a>)}</nav></details></header><main id="main" class="wrap"><slot/></main><footer class="wrap"><span>© {new Date().getFullYear()} Varshith Sai Ulisi<br/>Building opportunity. Documenting the journey.</span><div class="footer-links"><a href={linkedin}>LinkedIn ↗</a><a href={path('about/timeline/')}>Timeline</a><a href={path('evidence/')}>Sources & notes</a><a href={path('rss.xml')}>RSS</a><a href={path('contact/')}>Contact</a></div></footer><script>
+const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+if(!reduced.matches && 'IntersectionObserver' in window){
+ const targets=document.querySelectorAll<HTMLElement>('[data-reveal]');
+ const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}}},{threshold:0.08});
+ targets.forEach(target=>{target.classList.add('will-reveal');observer.observe(target);});
+ reduced.addEventListener('change',()=>{if(reduced.matches){targets.forEach(t=>t.classList.remove('will-reveal'));observer.disconnect();}},{once:true});
+}
+const progress=document.querySelector<HTMLElement>('.reading-progress');
+let ticking=false;
+function updateProgress(){const total=document.documentElement.scrollHeight-innerHeight;if(progress)progress.style.transform=`scaleX(${total>0?Math.min(1,scrollY/total):0})`;ticking=false;}
+addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(updateProgress);ticking=true;}},{passive:true});updateProgress();
+</script></body></html>
