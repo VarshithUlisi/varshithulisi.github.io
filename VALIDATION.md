@@ -19,3 +19,7 @@ Deployment target: `VarshithUlisi/varshithulisi.github.io`, configured for GitHu
 ## Writing studio update — November 12, 2026
 
 The browser editor supports multiple saved drafts, basic reading preview, optional event dates, related initiatives, cover-photo metadata, download, and GitHub publication preparation. Browser checks verified draft restoration after reload and generation of the correct GitHub new-file URL. No test post was committed. Serializer tests cover quoted/multiline frontmatter, safe slugs, draft exports, and optional fields. The dashboard is excluded from the sitemap and marked noindex. Final publication is through GitHub, not directly from the public page.
+
+## November 12 content strategy update
+
+Astro check: zero errors or warnings. Production build: 25 pages. Internal checks: 808 links, structured data, privacy exclusions and five RSS entries passed. Studio serialization tests passed. Browser checks confirmed prompt loading, unfinished-prompt publication guard, article preview, clipboard/GitHub handoff and deletion of the temporary browser test draft. Resources page visually reviewed. No test article was published.

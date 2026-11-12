@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { posts } from '../lib/posts';
 import projects from '../data/projects.json';
+import ideas from '../data/editorial-ideas.json';
 import { path } from '../lib/site';
 const existing = await posts();
 const categories = ['Events','Speaking','Presentations','Community Service','Leadership','Ventures','Research','Personal Reflections'];
@@ -11,6 +12,8 @@ const categories = ['Events','Speaking','Presentations','Community Service','Lea
  <noscript><p class="note">Enable JavaScript to use the editor, or <a href="https://github.com/VarshithUlisi/varshithulisi.github.io/tree/main/src/content/journal">write directly on GitHub</a>.</p></noscript>
  <div class="studio-info"><p>Write here, then confirm publication in GitHub. Only someone with access to your repository can publish.</p><p class="caption">Drafts stay in this browser until you publish or download them. They do not sync across devices.</p></div>
  <div class="studio-toolbar"><label>Saved drafts<select id="draft-list"><option value="">Choose a draft</option></select></label><button type="button" id="new-draft">New post</button><button type="button" id="save-draft">Save draft</button><button type="button" id="discard-draft">Delete draft</button><span id="delete-confirm" hidden>Delete this browser draft? <button type="button" id="confirm-delete">Delete permanently</button><button type="button" id="cancel-delete">Keep draft</button></span><p id="save-status" role="status" aria-live="polite">Ready to write.</p></div>
+ <details class="editorial-ideas"><summary>Need a starting point? Your 12 planned stories</summary><p>These are writing prompts, not completed articles. Confirm event details and replace every prompt with your own account before publishing.</p><div class="resource-grid">{ideas.map((idea,i)=><article><span class="meta">{idea.category}</span><h3>{idea.title}</h3><p>{idea.prompt}</p><button type="button" data-idea={i}>Start this draft →</button></article>)}</div></details>
+ <script is:inline type="application/json" id="editorial-ideas" set:html={JSON.stringify(ideas).replace(/</g,'\\u003c')}/>
  <div class="studio-columns">
   <form id="post-editor" class="post-editor">
    <div class="editor-heading"><h2>Your story</h2><span class="meta" id="word-count">0 words</span></div>

@@ -95,3 +95,7 @@ Semantic landmarks, one h1 per page, visible keyboard focus, a skip link, native
 ## Personal visual edition
 
 The supplied portrait appears on Home, About, and Contact. Original abstract SVG illustrations accompany the featured initiatives; an accessible four-step diagram explains the approach to the work. Scroll reveals, hover transitions, and a reading-progress indicator respect reduced-motion preferences. Content remains visible without JavaScript. The LinkedIn profile also appears in Person structured data.
+
+## Editorial strategy update
+
+The studio includes 12 article prompts from the supplied strategy. They are not published posts; replace prompts with authentic writing and confirmed event details. `/resources/` contains biographies, the supplied portrait, project summaries and a printable public profile. `/resources/profile/` supports Print / Save as PDF. The profile is a concise public summary, not an independently verified résumé.
