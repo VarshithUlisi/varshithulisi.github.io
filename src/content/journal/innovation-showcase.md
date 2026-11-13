@@ -32,4 +32,4 @@ What stayed with me was watching students explain ideas they had spent time deve
 
 The [summer 2026 photo case study](/projects/uplift-academy-ohio/) follows the camp from learning and mentoring to prototypes and presentations, with photographs from the program and a separate account of the NextGen Cohort.
 
-The cohort at Mason Public Library reported **500+ student hours** and **650+ volunteer hours**. Those figures are not part of the summer camp totals, and the cohort’s reporting dates have not been supplied.
+The inaugural NextGen Coders cohort at Mason Public Library ran **January 6–March 17, 2026**. Its updated report records **600+ student learning hours**, **450+ volunteer service hours**, **30 learners**, and **60+ showcase attendees**. This earlier pilot laid the foundation for the summer camp; its figures remain separate from camp totals.

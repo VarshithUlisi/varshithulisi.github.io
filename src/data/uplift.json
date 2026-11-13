@@ -20,12 +20,21 @@
   ],
   "cohort": [
     {
-      "value": "500+",
-      "label": "Student hours"
+      "value": "600+",
+      "label": "Student learning hours"
     },
     {
-      "value": "650+",
-      "label": "Volunteer hours"
+      "value": "450+",
+      "label": "Volunteer service hours"
+    },
+    {
+      "value": "30",
+      "label": "Young learners"
+    },
+    {
+      "value": "60+",
+      "label": "Showcase attendees"
     }
-  ]
+  ],
+  "cohortPeriod": "January 6\u2013March 17, 2026"
 }
