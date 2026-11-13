@@ -1,29 +1,35 @@
 ---
-title: "When students share what they have built"
-description: "A record of the NextGen Innovation Camp and the families who gathered for its final showcase."
+title: "A summer of ideas: inside NextGen Innovation Camp"
+description: "3,500+ student learning hours, 850+ volunteer hours, and 70+ innovation ideas. The people and work behind Uplift’s summer 2026 camp."
 published: "2026-11-11"
-eventLabel: "Summer camp · year to confirm"
+eventLabel: "Summer 2026 · exact showcase date not supplied"
+venue: "MidPointe Library & Mason Public Library, Ohio"
 category: "Events"
 sourcePages: "4, 18, 21–23"
+sourceNote: "Updated November 13, 2026 with program-reported summer 2026 figures, host locations, and photographs supplied by Varshith. Exact event dates and hour-calculation methods were not supplied."
 related: "uplift-academy-ohio"
+image: "images/uplift-2026/09-1600.webp"
+imageAlt: "Camp students holding up their illustrated team posters"
 draft: false
 featured: true
 ---
 
-## The work behind the showcase
+## An idea needs somewhere to start
 
-Through Uplift Academy Ohio, I organized a summer innovation camp centered on the United Nations Sustainable Development Goals. Approximately 70 elementary students explored sustainability and global challenges through hands-on STEM activities.
+I wanted students to have a chance to explore technology without cost deciding whether they could take part. Through Uplift Academy Ohio, our summer 2026 NextGen Innovation Camp offered free learning at MidPointe Library and Mason Public Library.
 
-The camp required program development, volunteer coordination, partnerships, and clear communication. Keeping the opportunity free mattered to me, but so did making it worthwhile for the students and families participating.
+Students began with Scratch programming, explored the United Nations’ Sustainable Development Goals, and developed their own responses to real-world challenges. Volunteers helped them test, troubleshoot, and refine their prototypes.
 
-## A room for their ideas
+## The work behind the numbers
 
-The final showcase brought together more than 200 people, including over 150 parents and family members, according to my account. Students explained projects they had spent time developing. Watching their families listen made the planning behind the program feel immediate and worthwhile.
+The program reported **3,500+ student learning hours** and **850+ volunteer service hours**. These are separate measures: time spent learning and time contributed by volunteers.
 
-The project ideas belonged to the students. My role was to help bring together the people, programs, and planning that gave them an opportunity to develop and present those ideas.
+The Innovation Showcase brought together **200+ attendees**. Students presented **70+ innovation ideas**, collectively representing **all 17 Sustainable Development Goals**.
 
-## What I took from it
+What stayed with me was watching students explain ideas they had spent time developing. Their projects were being taken seriously. For me, that was the point of the planning: giving students both the opportunity to create and the chance to be heard.
 
-A program has to work for the children, families, volunteers, and partners involved. This experience made me more attentive to those different needs and to whether an opportunity can continue beyond one event.
+## See the full story
 
-The attendance figures describe participation. They do not establish a measured improvement in STEM skills or confidence. The source does not give the camp year or the showcase date; those details remain to be confirmed.
+The [summer 2026 photo case study](/projects/uplift-academy-ohio/) follows the camp from learning and mentoring to prototypes and presentations, with photographs from the program and a separate account of the NextGen Cohort.
+
+The cohort at Mason Public Library reported **500+ student hours** and **650+ volunteer hours**. Those figures are not part of the summer camp totals, and the cohort’s reporting dates have not been supplied.

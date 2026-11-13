@@ -1,0 +1,31 @@
+{
+  "period": "Summer 2026",
+  "camp": [
+    {
+      "value": "3,500+",
+      "label": "Student learning hours"
+    },
+    {
+      "value": "850+",
+      "label": "Volunteer service hours"
+    },
+    {
+      "value": "200+",
+      "label": "Showcase attendees"
+    },
+    {
+      "value": "70+",
+      "label": "Student innovation ideas"
+    }
+  ],
+  "cohort": [
+    {
+      "value": "500+",
+      "label": "Student hours"
+    },
+    {
+      "value": "650+",
+      "label": "Volunteer hours"
+    }
+  ]
+}
