@@ -1,5 +1,5 @@
 ---
-title: "Representing a generation at the 2026 Business Hall of Fame"
+title: "Selected from 70,000+ applicants to address the 2026 Business Hall of Fame"
 description: "My student testimonial, the community work behind the invitation, and an unforgettable response from all five Hall of Fame laureates."
 published: "2026-11-13"
 eventDate: "2026-04-16"
@@ -8,7 +8,7 @@ venue: "Oscar Event Center, Fairfield, Ohio"
 category: "Speaking"
 sourcePages: "12"
 related: "mason-venture-studio"
-sourceNote: "Event date and venue are confirmed by Junior Achievement’s official event listing. The supplied printed program names Varshith Ulisi for Junior Achievement’s Impact. Program reach, selection context, competition progress, and laureates’ personal acknowledgments are from Varshith’s firsthand account. The 70,000+ figure describes students served by JA OKI, not a verified competitive applicant pool."
+sourceNote: "Event date and venue are confirmed by Junior Achievement’s official event listing. The supplied printed program names Varshith Ulisi for Junior Achievement’s Impact. Program reach, competition progress, and laureates’ personal acknowledgments are from Varshith’s firsthand account. Varshith confirmed that Junior Achievement verified the selection pool of 70,000+ applicants."
 image: "images/hall-of-fame/3594.webp"
 imageAlt: "Varshith delivering his student testimonial at the Business Hall of Fame"
 draft: false
@@ -19,7 +19,7 @@ featured: true
 
 On April 16, 2026, I delivered the student testimonial at Junior Achievement of OKI Partners’ Greater Butler & Warren Counties Business Hall of Fame. Standing at the Oscar Event Center in Fairfield, I had the opportunity to tell business and community leaders what their investment in students could make possible.
 
-I was selected to represent a Junior Achievement community of more than **70,000 students**. It was an honor to bring a student perspective into an evening celebrating people who had spent decades building businesses and serving southwestern Ohio.
+I was selected from more than **70,000 applicants** to deliver the student testimonial. It was an honor to bring a student perspective into an evening celebrating people who had spent decades building businesses and serving southwestern Ohio.
 
 <div class="case-stats"><div><strong>~200</strong><span>Elementary learners reached</span></div><div><strong>60+</strong><span>Venture Studio students</span></div><div><strong>15+</strong><span>Student startups & ideas</span></div><div><strong>5</strong><span>Laureates who acknowledged my remarks</span></div></div>
 
@@ -29,7 +29,11 @@ I was selected to represent a Junior Achievement community of more than **70,000
 
 <video controls playsinline preload="none" poster="/images/hall-of-fame/9113.webp" aria-label="Recording of Varshith’s Business Hall of Fame student testimonial" style="width:100%;max-height:720px;background:#101b32"><source src="/video/hall-of-fame.m4v" type="video/mp4"/><a href="/video/hall-of-fame.m4v">Open the speech recording</a></video>
 
-*Event recording supplied from the evening. The account below summarizes the speech; it is not a verbatim transcript.*
+### More from the evening
+
+<video controls playsinline preload="none" aria-label="Second recording from the 2026 Business Hall of Fame" style="width:100%;max-height:720px;background:#101b32"><source src="/video/hall-of-fame-second.m4v" type="video/mp4"/><a href="/video/hall-of-fame-second.m4v">Open the second event recording</a></video>
+
+*Both event recordings were supplied from the evening. The account below summarizes the speech; it is not a verbatim transcript.*
 
 ## It started with one conversation
 
