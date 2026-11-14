@@ -12,7 +12,7 @@ sourceNote: "Event date and venue are confirmed by Junior Achievement’s offici
 image: "images/hall-of-fame/3594.webp"
 imageAlt: "Varshith delivering his student testimonial at the Business Hall of Fame"
 draft: false
-featured: true
+featured: false
 ---
 
 ## From one conversation to a regional stage
