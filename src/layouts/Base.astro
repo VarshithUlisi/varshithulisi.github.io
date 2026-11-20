@@ -9,7 +9,7 @@ const {title,description=defaultDescription,type='website',schema,noindex=false}
 const fullTitle=title?`${title} — ${name}`:name+' — Technology, leadership & ideas';
 const canonical=new URL(Astro.url.pathname,Astro.site||'https://example.com').href;
 const preview=Astro.site?.hostname==='example.com';
-const person={'@type':'Person','@id':absolute('#person',Astro.site),name,url:absolute('',Astro.site),description:defaultDescription,image:absolute('images/varshith-ulisi.png',Astro.site),sameAs:[linkedin]};
+const person={'@type':'Person','@id':absolute('#person',Astro.site),name,url:absolute('',Astro.site),description:defaultDescription,image:absolute('images/varshith-ulisi.png',Astro.site),sameAs:[linkedin,'https://github.com/VarshithUlisi'],affiliation:{'@type':'EducationalOrganization',name:'William Mason High School'},founder:[{'@type':'Organization',name:'Uplift Academy Ohio',url:'https://upliftohio.org/'},{'@type':'Organization',name:'MindMate Health',url:'https://mindmatehealth.com/'}]};
 const graph=[person,{'@type':Astro.url.pathname.endsWith('/about/')?'ProfilePage':'WebPage','@id':canonical,url:canonical,name:fullTitle,description,mainEntity:{'@id':person['@id']}},...(schema?[schema]:[])];
 const nav=[['Home',''],['About','about/'],['Impact','impact/'],['Leadership','leadership/'],['Projects','projects/'],['Blog','journal/'],['Events','events/'],['Recognition','recognition/'],['Card','card/'],['Contact','contact/']];
 const active=(href:string)=>href?Astro.url.pathname.startsWith(path(href)):Astro.url.pathname===path('');
