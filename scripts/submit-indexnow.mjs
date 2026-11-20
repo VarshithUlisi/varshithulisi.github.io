@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';
+const host='varshithulisi.github.io';
+const key=(await fs.readFile('indexnow-key.txt','utf8')).trim();
+const sitemap=await fetch(`https://${host}/sitemap-0.xml`).then(r=>{if(!r.ok)throw Error(`Sitemap: ${r.status}`);return r.text()});
+const urls=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
+if(!urls.length||urls.some(u=>!u.startsWith(`https://${host}/`)))throw Error('Unexpected sitemap URLs');
+const keyUrl=`https://${host}/${key}.txt`;
+const liveKey=await fetch(keyUrl).then(r=>r.ok?r.text():'');
+if(liveKey!==key)throw Error('IndexNow key has not reached the published site yet');
+const response=await fetch('https://api.indexnow.org/indexnow',{method:'POST',headers:{'Content-Type':'application/json; charset=utf-8'},body:JSON.stringify({host,key,keyLocation:keyUrl,urlList:urls})});
+if(!response.ok)throw Error(`IndexNow returned ${response.status}: ${(await response.text()).slice(0,200)}`);
+console.log(`IndexNow accepted ${urls.length} URLs (${response.status}).`);

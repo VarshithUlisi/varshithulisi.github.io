@@ -41,3 +41,19 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+
+  notify-indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Notify participating search engines
+        run: |
+          for attempt in 1 2 3 4 5; do
+            node scripts/submit-indexnow.mjs && exit 0
+            sleep 20
+          done
+          exit 1
