@@ -33,7 +33,7 @@ I was selected from more than **70,000 applicants** to deliver the student testi
 
 <video controls playsinline preload="none" aria-label="Second recording from the 2026 Business Hall of Fame" style="width:100%;max-height:720px;background:#101b32"><source src="/video/hall-of-fame-second.m4v" type="video/mp4"/><a href="/video/hall-of-fame-second.m4v">Open the second event recording</a></video>
 
-*Both event recordings were supplied from the evening. The account below summarizes the speech; it is not a verbatim transcript.*
+
 
 ## It started with one conversation
 
@@ -69,7 +69,7 @@ The value of those connections was practical: students could ask questions, get 
 
 ## Speaking to the people who built before us
 
-The evening honored five laureates: **Catherine Evans, George Lang, Steve Lippert, Andy Schuster, and Sherry Ratcliffe Taylor**. Their names appear in the supplied event program below.
+The evening honored five laureates: **Catherine Evans, George Lang, Steve Lippert, Andy Schuster, and Sherry Ratcliffe Taylor**. The evening’s program appears below.
 
 ![The printed event program listing Varshith Ulisi’s student testimonial and the five inductees](/images/hall-of-fame/9094.webp)
 
@@ -97,8 +97,8 @@ When I first contacted Junior Achievement, I was not imagining a Hall of Fame st
 
 The responsibility I took from that evening is to keep creating opportunities for others. The support I received should continue through the students I teach, the founders I work with, and the projects we build together.
 
-## Event record
+## Explore the event
 
-[Junior Achievement’s official event listing](https://japartners.org/event/2026-greater-butler-warren-counties-business-hall-of-fame/) confirms the April 16, 2026 ceremony at the Oscar Event Center. [The Hall of Fame page](https://japartners.org/greater-butler-warren-county-hall-of-fame/) provides the organizer’s laureate information. Photos, recording, speech excerpts, and personal reflections were supplied for this account.
+Visit [Junior Achievement’s event page](https://japartners.org/event/2026-greater-butler-warren-counties-business-hall-of-fame/) and [meet the Hall of Fame laureates](https://japartners.org/greater-butler-warren-county-hall-of-fame/).
 
 [Invite me to speak →](/contact/#speaking)

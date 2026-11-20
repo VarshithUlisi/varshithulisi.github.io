@@ -23,7 +23,7 @@ Students began with Scratch programming, explored the United Nations’ Sustaina
 
 ## The work behind the numbers
 
-The program reported **3,500+ student learning hours** and **850+ volunteer service hours**. These are separate measures: time spent learning and time contributed by volunteers.
+The program delivered **3,500+ student learning hours** and **850+ volunteer service hours**. These are separate measures: time spent learning and time contributed by volunteers.
 
 The Innovation Showcase brought together **200+ attendees**. Students presented **70+ innovation ideas**, collectively representing **all 17 Sustainable Development Goals**.
 

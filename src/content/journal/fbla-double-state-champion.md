@@ -83,4 +83,3 @@ Winning twice did not make the work feel finished. It made the next level feel r
 The experience showed me that I could move between ethical strategy and operational detail, then communicate each in the form the event demanded. More importantly, it gave me a standard for the work that followed: understand the system, identify the real decision, and build an answer that works beyond the presentation room.
 
 [View the official Ohio FBLA 2026 conference page →](https://www.ohfbla.org/2026-slc)
-

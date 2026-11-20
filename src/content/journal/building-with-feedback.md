@@ -2,7 +2,7 @@
 title: "Learning to revise an idea I cared about"
 description: "How developing MindMate changed the questions I ask about a product."
 published: "2026-11-11"
-eventLabel: "Development reflection · dates not specified"
+eventLabel: "Product development & reflection"
 category: "Ventures"
 sourcePages: "19–20, 26–27"
 related: "mindmate-health"
@@ -25,5 +25,3 @@ That distinction changed the way I approached product development. I needed to a
 ## What progress means now
 
 I still enjoy the process of building, but I think more carefully about the responsibility that comes with something people might use. Effort does not guarantee an immediate result. Sometimes the useful next step is to ask what went wrong and try a different approach.
-
-This is an account of learning and development. It does not claim validated clinical outcomes, a completed pilot, or a verified user total.

@@ -32,7 +32,7 @@ The goal was to leave room for questions and experimentation. A project that did
 
 High school volunteers prepared lessons, led instruction, supported individual learners, and coordinated the program. Younger participants had mentors they could turn to; volunteers took responsibility for helping someone else learn.
 
-The cohort reported **600+ student learning hours** and **450+ volunteer service hours** across **30 learners**. These are distinct measures of participation and service, rather than a claim of measured long-term learning gains.
+Across **30 learners**, the cohort provided **600+ student learning hours**, supported by **450+ volunteer service hours**.
 
 ## Sharing what they built
 

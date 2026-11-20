@@ -23,5 +23,3 @@ The experience was part of finding a way to contribute during my time in Mexico.
 ## Carrying the experience forward
 
 Later, my educational work in Ohio would involve younger students and different subjects. The context changed, but paying attention to the learner remained important.
-
-This account does not claim a verified learner total or calculate service hours from the weekly schedule. The source does not provide attendance records or the number of sessions delivered.
