@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import {path,absolute,contact} from '../lib/site';
+import QRCode from 'qrcode';
+import {existsSync} from 'node:fs';
+const joinUrl=absolute('join/',Astro.site);
+const qr=await QRCode.toString(joinUrl,{type:'svg',errorCorrectionLevel:'M',margin:4,width:280,color:{dark:'#182d39',light:'#ffffff'}});
+const hasWallet=existsSync('public/passes/varshith.pkpass');
+---
+<Base title="Business card" description="Connect with Varshith Sai Ulisi. Student founder, product builder, and community leader.">
+  <section class="card-page">
+    <div class="card-page-heading"><div><p class="eyebrow">A conversation is a beginning</p><h1>Let’s stay connected.</h1></div><p>Ideas. People. What comes next.</p></div>
+    <div id="card-stage" class="card-stage" tabindex="-1">
+      <article class="digital-card" aria-label="Varshith Sai Ulisi’s digital business card">
+        <div class="digital-card-identity">
+          <div class="card-wordmark"><img src={path('images/varshith-logo-red.png')} alt="" width="48" height="48"/><span>Technology. People. Possibility.</span></div>
+          <img class="card-portrait" src={path('images/varshith-ulisi.png')} alt="Portrait of Varshith Sai Ulisi" width="800" height="800"/>
+          <div class="card-name"><p class="card-kicker">Mason, Ohio</p><h2>Varshith<br/><em>Sai Ulisi.</em></h2><p>Student founder · Product builder<br/>Creating opportunities through ideas.</p></div>
+        </div>
+        <div class="digital-card-connect">
+          <p class="card-kicker">The next connection starts here</p>
+          <h3>Good to meet you.</h3>
+          <p>Scan to join my list for new projects, collaborations, and future opportunities.</p>
+          <a class="card-qr" href={path('join/')} aria-label="Open Varshith’s waiting-list signup"><span set:html={qr}/></a>
+          <p class="qr-caption">Scan with your camera</p>
+          <a class="card-shortlink" href={path('join/')}>varshithulisi.github.io/join</a>
+        </div>
+      </article>
+      <button id="close-card" class="card-close" type="button" hidden aria-label="Exit fullscreen card">Close <span aria-hidden="true">×</span></button>
+    </div>
+    <div class="card-actions" aria-label="Business card actions">
+      <button id="open-card" class="button" type="button">View fullscreen</button>
+      <button id="share-card" class="card-secondary" type="button">Share card</button>
+      <a class="card-secondary" href={path('varshith-ulisi.vcf')} download>Save contact</a>
+      {hasWallet&&<a class="card-wallet" href={path('passes/varshith.pkpass')}>Add to Apple Wallet</a>}
+    </div>
+    <p id="card-status" class="card-status" role="status" aria-live="polite"></p>
+    <p class="card-direct">Already on this page? <a href={path('join/')}>Join the waiting list</a> or <a href={`mailto:${contact}`}>send me a note</a>.</p>
+  </section>
+</Base>
+<script>
+  const stage=document.querySelector<HTMLElement>('#card-stage')!;
+  const open=document.querySelector<HTMLButtonElement>('#open-card')!;
+  const close=document.querySelector<HTMLButtonElement>('#close-card')!;
+  const status=document.querySelector<HTMLElement>('#card-status')!;
+  let expanded=false;
+  function collapsed(){expanded=false;stage.classList.remove('card-expanded');document.body.classList.remove('card-is-open');stage.removeAttribute('role');stage.removeAttribute('aria-modal');close.hidden=true;open.focus();}
+  async function exit(){if(document.fullscreenElement===stage){await document.exitFullscreen().catch(()=>{});}if(expanded)collapsed();}
+  open.addEventListener('click',async()=>{expanded=true;stage.classList.add('card-expanded');document.body.classList.add('card-is-open');stage.setAttribute('role','dialog');stage.setAttribute('aria-modal','true');stage.setAttribute('aria-label','Fullscreen business card');close.hidden=false;close.focus();if(stage.requestFullscreen){try{await stage.requestFullscreen();}catch{/* The full-window presentation remains available on iOS and unsupported browsers. */}}});
+  close.addEventListener('click',exit);
+  document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&expanded)collapsed();});
+  document.addEventListener('keydown',e=>{if(!expanded)return;if(e.key==='Escape'){e.preventDefault();void exit();}if(e.key==='Tab'){const items=[...stage.querySelectorAll<HTMLElement>('a[href],button:not([hidden])')];const first=items[0],last=items[items.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+  document.querySelector('#share-card')!.addEventListener('click',async()=>{const url=new URL(import.meta.env.BASE_URL+'card/',location.origin).href;try{if(navigator.share){await navigator.share({title:'Varshith Sai Ulisi — Business card',url});status.textContent='Card shared.';}else{await navigator.clipboard.writeText(url);status.textContent='Card link copied.';}}catch(e){if((e as Error).name!=='AbortError')status.textContent='You can copy this page’s address to share your card.';}});
+</script>

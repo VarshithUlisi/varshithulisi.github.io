@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import {path,contact} from '../lib/site';
+---
+<Base title="Stay connected" description="Join Varshith Sai Ulisi’s waiting list for projects, collaborations, and future opportunities.">
+  <section class="join-layout">
+    <div class="join-intro"><a class="join-profile" href={path('card/')}><img src={path('images/varshith-ulisi.png')} alt="Varshith Sai Ulisi" width="120" height="120"/><span>Varshith Sai Ulisi<br/><small>Student founder & product builder</small></span></a><p class="eyebrow">Keep the conversation going</p><h1>Good things<br/>start with<br/><em>a connection.</em></h1><p>Join my waiting list for the projects I’m building, opportunities to collaborate, and what comes next.</p><div class="join-topics"><span>New projects</span><span>Collaborations</span><span>Future opportunities</span></div></div>
+    <div class="join-form-panel">
+      <div id="join-form-content"><h2>Let’s stay in touch.</h2><p>Tell me a little about yourself.</p>
+      <form id="waitlist-form">
+        <label for="join-name">Full name<input id="join-name" name="name" autocomplete="name" required maxlength="120" placeholder="Your full name"/></label>
+        <label for="join-phone">Phone number<input id="join-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="40" placeholder="+1 (555) 123-4567" aria-describedby="phone-help"/></label><p id="phone-help" class="join-help">Include your country code if you’re outside the U.S.</p>
+        <div class="join-field-pair"><label for="join-company">Company / organization<input id="join-company" name="company" autocomplete="organization" required maxlength="120" placeholder="Company, school, or independent"/></label><label for="join-title">Title / role<input id="join-title" name="title" autocomplete="organization-title" required maxlength="120" placeholder="Your role or student"/></label></div>
+        <div class="form-trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"/></label></div>
+        <label class="join-consent"><input type="checkbox" name="consent" required/><span>I agree that Varshith may contact me at this number about his projects and future opportunities. I can ask to leave the list at any time.</span></label>
+        <button id="join-submit" class="button" type="submit">Join the waiting list</button>
+        <p id="join-status" class="join-status" role="status" aria-live="polite"></p>
+        <p class="join-privacy">Your details are private to Varshith and aren’t displayed on this website. <a href={`mailto:${contact}?subject=Waiting%20list%20request`}>Request removal</a>.</p>
+      </form><noscript><p>Please enable JavaScript to join, or <a href={`mailto:${contact}`}>email me directly</a>.</p></noscript></div>
+      <div id="join-success" hidden tabindex="-1"><span class="join-check" aria-hidden="true">✓</span><p class="eyebrow">You’re on the list</p><h2>Here’s to<br/>what comes next.</h2><p>Thanks for connecting. I’ll be in touch about my projects and future opportunities.</p><a class="button" href={path('projects/')}>Explore my work</a><a class="join-success-back" href={path('card/')}>Back to my card</a></div>
+    </div>
+  </section>
+</Base>
+<script>
+  const endpoint='https://varshith-connect.mythicweaver1.chatgpt.site';
+  const form=document.querySelector<HTMLFormElement>('#waitlist-form')!;
+  const status=document.querySelector<HTMLElement>('#join-status')!;
+  const button=document.querySelector<HTMLButtonElement>('#join-submit')!;
+  let token='',loadedAt=0;
+  async function challenge(){const response=await fetch(endpoint+'/api/challenge',{credentials:'omit',signal:AbortSignal.timeout(15000)});if(!response.ok)throw new Error('The waiting list is temporarily unavailable. Please try again shortly.');const data=await response.json();token=data.token;loadedAt=Date.now();}
+  void challenge().catch(()=>{status.textContent='Please complete the form. We’ll reconnect when you submit.';});
+  form.addEventListener('submit',async e=>{e.preventDefault();if(!form.reportValidity())return;const values=new FormData(form);const phone=String(values.get('phone')).trim();const digits=phone.replace(/\D/g,'');if(digits.length<7||digits.length>15||!/^\+?[\d ()\.\-]+$/.test(phone)){status.textContent='Please enter a valid phone number, including your country code.';document.querySelector<HTMLElement>('#join-phone')!.focus();return;}
+    button.disabled=true;button.textContent='Joining…';status.textContent='';
+    try{if(!token||Date.now()-loadedAt>3500000)await challenge();if(Date.now()-loadedAt<1600)await new Promise(r=>setTimeout(r,1600));const response=await fetch(endpoint+'/api/join',{method:'POST',credentials:'omit',headers:{'Content-Type':'application/json'},signal:AbortSignal.timeout(20000),body:JSON.stringify({name:values.get('name'),phone,company:values.get('company'),title:values.get('title'),website:values.get('website'),consent:values.get('consent')==='on',token})});const data=await response.json();if(!response.ok||data.ok!==true)throw new Error(data.error||'We couldn’t save your details. Please try again.');form.reset();document.querySelector<HTMLElement>('#join-form-content')!.hidden=true;const success=document.querySelector<HTMLElement>('#join-success')!;success.hidden=false;success.focus();}catch(error){status.textContent=error instanceof Error&&error.name!=='TimeoutError'?error.message:'The request timed out. Your details may have been saved; it is safe to try again.';token='';}finally{button.disabled=false;button.textContent='Join the waiting list';}
+  });
+</script>
