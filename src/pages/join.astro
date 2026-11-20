@@ -4,7 +4,7 @@ import {path,contact} from '../lib/site';
 ---
 <Base title="Stay connected" description="Join Varshith Sai Ulisi’s waiting list for projects, collaborations, and future opportunities.">
   <section class="join-layout">
-    <div class="join-intro"><a class="join-profile" href={path('card/')}><img src={path('images/varshith-ulisi.png')} alt="Varshith Sai Ulisi" width="120" height="120"/><span>Varshith Sai Ulisi<br/><small>Student founder & product builder</small></span></a><p class="eyebrow">Keep the conversation going</p><h1>Good things<br/>start with<br/><em>a connection.</em></h1><p>Join my waiting list for the projects I’m building, opportunities to collaborate, and what comes next.</p><div class="join-topics"><span>New projects</span><span>Collaborations</span><span>Future opportunities</span></div></div>
+    <div class="join-intro"><a class="join-profile" href={path('card/')}><img src={path('images/varshith-ulisi.png')} alt="Varshith Sai Ulisi" width="120" height="120"/><span>Varshith Sai Ulisi<br/><small>Student founder & product builder</small></span></a><p class="eyebrow">Keep the conversation going</p><h1>Good things<br/>start with<br/><em>a connection.</em></h1><p>Join my waiting list for the projects I’m building, opportunities to collaborate, and what comes next.</p><p><a href={`mailto:${contact}`}>{contact}</a></p><div class="join-topics"><span>New projects</span><span>Collaborations</span><span>Future opportunities</span></div></div>
     <div class="join-form-panel">
       <div id="join-form-content"><h2>Let’s stay in touch.</h2><p>Tell me a little about yourself.</p>
       <form id="waitlist-form">

@@ -22,7 +22,7 @@ const hasWallet=existsSync('public/passes/varshith.pkpass');
           <h3>Good to meet you.</h3>
           <p>Scan to join my list for new projects, collaborations, and future opportunities.</p>
           <a class="card-qr" href={path('join/')} aria-label="Open Varshith’s waiting-list signup"><span set:html={qr}/></a>
-          <p class="qr-caption">Scan with your camera</p>
+          <p class="qr-caption">Scan with your camera</p><a class="card-email" href={`mailto:${contact}`}>{contact}</a>
           <a class="card-shortlink" href={path('join/')}>varshithulisi.github.io/join</a>
         </div>
       </article>
