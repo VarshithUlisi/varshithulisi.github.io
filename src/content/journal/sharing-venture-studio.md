@@ -22,6 +22,6 @@ The program gives students a place to identify a problem, test a business model,
 
 The most valuable part of the work was often direct support: helping a student choose a next step or find a mentor with the right expertise.
 
-## A careful event record
+## Taking the work to OSBA
 
-Exact presentation dates, session titles, and supporting programs are not supplied. The source uses both completed-presentation language and broader “opportunities associated with” language for OSBA. I have not assigned an event date or claimed a specific completed OSBA session. Those details require confirmation before a standalone conference recap is published.
+On November 17, 2026, I presented Mason Venture Studio at the OSBA Capital Conference in Columbus. Our session reached around 40 superintendents and school board members and generated interest in visiting Mason’s student-led programs. [Read the conference story and see the photographs →](/journal/mason-venture-studio-osba-2026/)
